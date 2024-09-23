@@ -1,6 +1,6 @@
 Modelagem de dados da aplicação: 
 
-![alt text](image.png)
+![alt text](modelagem-bd.png)
 
 Banco escolhido: Amazon RDS (com o mecanismo Mysql)
 
