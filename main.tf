@@ -83,18 +83,18 @@ resource "aws_db_instance" "rds_mysql_client" {
   }
 }
 
-output "db_instance_endpoint" {
+output "db_instance_endpoint_product" {
   value = aws_db_instance.rds_mysql_product.endpoint
 }
 
-output "db_instance_endpoint" {
+output "db_instance_endpoint_order" {
   value = aws_db_instance.rds_mysql_order.endpoint
 }
 
-output "db_instance_endpoint" {
+output "db_instance_endpoint_payment" {
   value = aws_db_instance.rds_mysql_payment.endpoint
 }
 
-output "db_instance_endpoint" {
+output "db_instance_endpoint_client" {
   value = aws_db_instance.rds_mysql_client.endpoint
 }
