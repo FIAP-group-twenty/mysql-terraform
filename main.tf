@@ -12,7 +12,7 @@ data "aws_security_group" "existing_sg" {
 
 
 resource "aws_db_instance" "rds_mysql_product" {
-  identifier = "product_db"
+  identifier = "product-db"
   allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "8.0.35" 
@@ -31,7 +31,7 @@ resource "aws_db_instance" "rds_mysql_product" {
 }
 
 resource "aws_db_instance" "rds_mysql_order" {
-  identifier = "order_db"
+  identifier = "order-db"
   allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "8.0.35" 
@@ -50,7 +50,7 @@ resource "aws_db_instance" "rds_mysql_order" {
 }
 
 resource "aws_db_instance" "rds_mysql_payment" {
-  identifier = "payment_db"
+  identifier = "payment-db"
   allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "8.0.35" 
@@ -69,7 +69,7 @@ resource "aws_db_instance" "rds_mysql_payment" {
 }
 
 resource "aws_db_instance" "rds_mysql_client" {
-  identifier = "client_db"
+  identifier = "client-db"
   allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "8.0.35" 
