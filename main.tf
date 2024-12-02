@@ -12,11 +12,12 @@ data "aws_security_group" "existing_sg" {
 
 
 resource "aws_db_instance" "rds_mysql_product" {
+  identifier = "product_db"
   allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "8.0.35" 
   instance_class       = "db.t4g.micro"
-  db_name              = "product-db"
+  db_name              = "product_db"
   username             = "admin" 
   password             = "admin12345678"
   parameter_group_name = "default.mysql8.0"
@@ -30,11 +31,12 @@ resource "aws_db_instance" "rds_mysql_product" {
 }
 
 resource "aws_db_instance" "rds_mysql_order" {
+  identifier = "order_db"
   allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "8.0.35" 
   instance_class       = "db.t4g.micro"
-  db_name              = "order-db"
+  db_name              = "order_db"
   username             = "admin" 
   password             = "admin12345678"
   parameter_group_name = "default.mysql8.0"
@@ -48,11 +50,12 @@ resource "aws_db_instance" "rds_mysql_order" {
 }
 
 resource "aws_db_instance" "rds_mysql_payment" {
+  identifier = "payment_db"
   allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "8.0.35" 
   instance_class       = "db.t4g.micro"
-  db_name              = "payment-db"
+  db_name              = "payment_db"
   username             = "admin" 
   password             = "admin12345678"
   parameter_group_name = "default.mysql8.0"
@@ -66,11 +69,12 @@ resource "aws_db_instance" "rds_mysql_payment" {
 }
 
 resource "aws_db_instance" "rds_mysql_client" {
+  identifier = "client_db"
   allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "8.0.35" 
   instance_class       = "db.t4g.micro"
-  db_name              = "client-db"
+  db_name              = "client_db"
   username             = "admin" 
   password             = "admin12345678"
   parameter_group_name = "default.mysql8.0"
