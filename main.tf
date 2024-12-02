@@ -11,12 +11,12 @@ data "aws_security_group" "existing_sg" {
 }
 
 
-resource "aws_db_instance" "rds_mysql" {
-  allocated_storage    = 20
+resource "aws_db_instance" "rds_mysql_product" {
+  allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "8.0.35" 
   instance_class       = "db.t4g.micro"
-  db_name              = "fiap"
+  db_name              = "product-db"
   username             = "admin" 
   password             = "admin12345678"
   parameter_group_name = "default.mysql8.0"
@@ -25,10 +25,76 @@ resource "aws_db_instance" "rds_mysql" {
   vpc_security_group_ids = [data.aws_security_group.existing_sg.id]
   db_subnet_group_name = "rds-challenge"
   tags = {
-    Name = "rds instance"
+    Name = "rds instance product"
+  }
+}
+
+resource "aws_db_instance" "rds_mysql_order" {
+  allocated_storage    = 5
+  engine               = "mysql"
+  engine_version       = "8.0.35" 
+  instance_class       = "db.t4g.micro"
+  db_name              = "order-db"
+  username             = "admin" 
+  password             = "admin12345678"
+  parameter_group_name = "default.mysql8.0"
+  publicly_accessible  = true
+  skip_final_snapshot  = true
+  vpc_security_group_ids = [data.aws_security_group.existing_sg.id]
+  db_subnet_group_name = "rds-challenge"
+  tags = {
+    Name = "rds instance order"
+  }
+}
+
+resource "aws_db_instance" "rds_mysql_payment" {
+  allocated_storage    = 5
+  engine               = "mysql"
+  engine_version       = "8.0.35" 
+  instance_class       = "db.t4g.micro"
+  db_name              = "payment-db"
+  username             = "admin" 
+  password             = "admin12345678"
+  parameter_group_name = "default.mysql8.0"
+  publicly_accessible  = true
+  skip_final_snapshot  = true
+  vpc_security_group_ids = [data.aws_security_group.existing_sg.id]
+  db_subnet_group_name = "rds-challenge"
+  tags = {
+    Name = "rds instance payment"
+  }
+}
+
+resource "aws_db_instance" "rds_mysql_client" {
+  allocated_storage    = 5
+  engine               = "mysql"
+  engine_version       = "8.0.35" 
+  instance_class       = "db.t4g.micro"
+  db_name              = "client-db"
+  username             = "admin" 
+  password             = "admin12345678"
+  parameter_group_name = "default.mysql8.0"
+  publicly_accessible  = true
+  skip_final_snapshot  = true
+  vpc_security_group_ids = [data.aws_security_group.existing_sg.id]
+  db_subnet_group_name = "rds-challenge"
+  tags = {
+    Name = "rds instance client"
   }
 }
 
 output "db_instance_endpoint" {
-  value = aws_db_instance.rds_mysql.endpoint
+  value = aws_db_instance.rds_mysql_product.endpoint
+}
+
+output "db_instance_endpoint" {
+  value = aws_db_instance.rds_mysql_order.endpoint
+}
+
+output "db_instance_endpoint" {
+  value = aws_db_instance.rds_mysql_payment.endpoint
+}
+
+output "db_instance_endpoint" {
+  value = aws_db_instance.rds_mysql_client.endpoint
 }
